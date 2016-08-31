@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process>
+   <process-def name=":Discovery-SA-Synchronization:rules">
+      <sequence>
+         <switch>
+            <meta>
+               <peer-location>
+                  <location>any</location>
+               </peer-location>
+            </meta>
+            <execute-all-applicable-cases>true</execute-all-applicable-cases>
+            <case name="Process Incoming event" applies-if-any-condition-true="true">
+               <condition>
+                  <document>
+                     <input>
+                        <from>inputevent</from>
+                     </input>
+                  </document>
+                  <xpath-expression>
+                     <xpath><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/VmMigratedEvent) >0='true']]></xpath>
+                  </xpath-expression>
+                  <gui-data>
+                     <from><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/VmMigratedEvent) >0]]></from>
+                     <fromKey><![CDATA[4902]]></fromKey>
+                     <to><![CDATA['true']]></to>
+                     <operator><![CDATA[=]]></operator>
+                     <type><![CDATA[String]]></type>
+                  </gui-data>
+               </condition>
+               <condition>
+                  <document>
+                     <input>
+                        <from>inputevent</from>
+                     </input>
+                  </document>
+                  <xpath-expression>
+                     <xpath><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/DrsVmMigratedEvent) >0='true']]></xpath>
+                  </xpath-expression>
+                  <gui-data>
+                     <from><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/DrsVmMigratedEvent) >0]]></from>
+                     <fromKey><![CDATA[4916]]></fromKey>
+                     <to><![CDATA['true']]></to>
+                     <operator><![CDATA[=]]></operator>
+                     <type><![CDATA[String]]></type>
+                  </gui-data>
+               </condition>
+               <condition>
+                  <document>
+                     <input>
+                        <from>inputevent</from>
+                     </input>
+                  </document>
+                  <xpath-expression>
+                     <xpath><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/ArrayOfEvent/DrsVmMigratedEvent) >0='true']]></xpath>
+                  </xpath-expression>
+                  <gui-data>
+                     <from><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/ArrayOfEvent/DrsVmMigratedEvent) >0]]></from>
+                     <fromKey><![CDATA[4917]]></fromKey>
+                     <to><![CDATA['true']]></to>
+                     <operator><![CDATA[=]]></operator>
+                     <type><![CDATA[String]]></type>
+                  </gui-data>
+               </condition>
+               <condition>
+                  <document>
+                     <input>
+                        <from>inputevent</from>
+                     </input>
+                  </document>
+                  <xpath-expression>
+                     <xpath><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/ArrayOfEvent/VmMigratedEvent) >0='true']]></xpath>
+                  </xpath-expression>
+                  <gui-data>
+                     <from><![CDATA[string-length(//vmware-monitor-event/returnval/changeSet/ArrayOfEvent/VmMigratedEvent) >0]]></from>
+                     <fromKey><![CDATA[4904]]></fromKey>
+                     <to><![CDATA['true']]></to>
+                     <operator><![CDATA[=]]></operator>
+                     <type><![CDATA[String]]></type>
+                  </gui-data>
+               </condition>
+               <sequence>
+                  <schedule-job>
+                     <parameters>
+                        <input required="false">
+                           <from>inputevent</from>
+                           <to>inputevent</to>
+                        </input>
+                     </parameters>
+                     <group>Discovery-SA-Synchronization</group>
+                     <name-prefix>Process Incoming event</name-prefix>
+                     <process-name>:Discovery-SA-Synchronization:Utilities:Process Incoming Event</process-name>
+                  </schedule-job>
+               </sequence>
+            </case>
+         </switch>
+      </sequence>
+      <meta>
+         <peer-location>
+            <location>any</location>
+         </peer-location>
+      </meta>
+      <parameters>
+         <input>
+            <from>inputevent</from>
+            <to>inputevent</to>
+         </input>
+      </parameters>
+   </process-def>
+</process>
+
