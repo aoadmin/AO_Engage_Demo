@@ -1,0 +1,10 @@
+<Extracted-Event xmlns="Discovery-SA-Synchronization">
+  <event xmlns="" />
+  <destination xmlns="" />
+  <source xmlns="" />
+  <vm-name xmlns="" />
+  <user-name xmlns="" />
+  <fullFormattedMessage xmlns="" />
+  <uuid xmlns="" />
+ </Extracted-Event>
+
