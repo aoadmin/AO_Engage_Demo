@@ -1,0 +1,59 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2000/10/XMLSchema" targetNamespace="Discovery-SA-Synchronization" elementFormDefault="qualified">
+  <xsd:element name="Extracted-Event" />
+  <xsd:complexType name="Extracted-EventType">
+    <xsd:annotation>
+      <xsd:documentation>Represents an Extracted event.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="event">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="destination">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="source">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="vm-name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="user-name">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="fullFormattedMessage">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="99" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="uuid">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <maxLength value="30" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+       </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
